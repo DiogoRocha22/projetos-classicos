@@ -31,11 +31,66 @@ export default function Calculadora() {
         })
     }
 
+    function handleOperation(operation){
+        setCompleteOperation(currentValue + " " + operation + " ")
+        setPendingOperation(operation)
+        setPendingValue(currentValue)
+        setCurrentValue("0")
+    }
+
     function Clear(){
         setCompleteOperation('')
         setCurrentValue("0")
         setPendingOperation(null)
         setPendingValue(null)
+    }
+
+    function handleOperate(){
+
+        if(!pendindOperation || !pendingValue){
+            return;
+        }
+
+
+        let num1 = parseFloat(pendingValue)
+        let num2 = parseFloat(currentValue)
+
+        let result
+
+        if(pendindOperation == '+'){
+            result = num1 + num2
+        }else if (pendindOperation == '-'){
+            result = num1 - num2
+        }else if (pendindOperation == '*'){
+            result = num1 * num2
+        }else if (pendindOperation == '/'){
+            if (num2 != 0){
+                result = num1 / num2
+            }else{
+                result = 'error'
+                setCompleteOperation(result)
+                setPendingOperation(null)
+                setCurrentValue(result)
+                setPendingValue(null)
+                return;
+            }
+        }
+
+        setCompleteOperation(
+        pendingValue + 
+        " " +
+        pendindOperation +
+        " " +
+        currentValue + 
+        " " +
+        "=" +
+        " " +  
+        result
+        )
+        
+        setCurrentValue(result.toString())
+        setCompleteOperation("0")
+        setPendingOperation(null)
     }
 
     return (
@@ -49,9 +104,9 @@ export default function Calculadora() {
                     <button onClick={() => handleClick(num)} key={num}>{num}</button>
                 ))}
                 {operations.map((op) => (
-                    <button key={op}>{op}</button>
+                    <button onClick={() => handleOperation(op)} key={op}>{op}</button>
                 ))}
-                <button>=</button>
+                <button onClick={() => handleOperate()}>=</button>
 
             </div>
         </div>
