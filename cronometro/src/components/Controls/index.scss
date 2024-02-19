@@ -1,0 +1,21 @@
+.controls{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    button{
+        width: 100px;
+        padding: 0.8rem;
+        background-color: rgb(40, 157, 235);
+        font-weight: bold;
+        border-radius: 20px;
+        text-transform: uppercase;
+        border: 0;
+        cursor: pointer;
+
+        &:hover{
+            background-color: rgb(60, 185, 235);
+        }
+    }
+}
