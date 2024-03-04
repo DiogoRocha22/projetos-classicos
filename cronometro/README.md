@@ -1,0 +1,1 @@
+Projeto Cronometro, criado com react e sass
