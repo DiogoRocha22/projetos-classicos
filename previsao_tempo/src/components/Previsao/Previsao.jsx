@@ -1,8 +1,16 @@
 import React from 'react'
-import 'index.scss'
 
 export default function Previsao() {
   return (
-    <div>Previsao</div>
+    <div>
+      <h4>Previsão para as proximas horas</h4>
+
+      <ul>
+        <li>
+          <img src="" alt="" />
+          C° - DESCRIÇÃOS
+        </li>
+      </ul>
+    </div>
   )
 }

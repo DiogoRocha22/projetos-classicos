@@ -3,6 +3,11 @@ import './index.scss'
 
 export default function ClimaAtual() {
   return (
-    <div>ClimaAtual</div>
+    <div>
+      <h3>Nome</h3>
+      <img src="" alt="" />
+      <p>C°</p>
+      <p>Descriçao da tempertatura</p>
+    </div>
   )
 }
